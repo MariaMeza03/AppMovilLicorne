@@ -3,21 +3,23 @@ import { StyleSheet, Text } from "react-native";
 
 const styles = StyleSheet.create({
 
-    text:{
-        fontSize:14,
+    title:{
+        fontSize:40,
+        fontWeight:'bold',
+        textAlign:'left',
+    },
+    link_text:{
+        fontSize:15,
+        fontWeight:'bold',
     },
 
-    bold:{
-        fontWeight:'bold',
-        color:'red',
-    }
 })
 
 
-export default function StyleText({bold, children}){
+export default function StyleText({bold,title, link_text,children}){
     const textStyle =[
-        styles.text,
-        bold && styles.bold,
+        title && styles.title,
+        link_text && styles.link_text,
 
     ]
 
