@@ -16,58 +16,58 @@ import StyleContainerScroll from "../../css/ScrollViewStyle";
 
 
 
-const Formulario= () =>{
+const Form= () =>{
     return(
 
     <StyleContainerScroll container>
         <StyleBackground colors={['#FFDF17', '#FFDF17']}  background/> 
-        <StyleImagen source={require('../img/Formulario.png')} imagen />
+        <StyleImagen source={require('../img/Formulario.webp')} imagen />
 
         <StyleContainer content_form>
             <StyleText title >Formulario</StyleText>
 
             <Formik>
 
-                <View style={{ paddingVertical:20 }} >
+                <StyleContainer content_form_form_formik >
 
-                    <View style={{ paddingBottom:25 }}>
-                        <Text style={{ fontWeight:"bold"}}>Correo electrónico</Text>
+                    <StyleContainer content_input>
+                        <StyleText label >Correo electrónico</StyleText>
                         <StyleInput placeholder="Tú dirección de correo electrónico"  input/>
-                    </View>
+                    </StyleContainer>
 
-                    <View style={{ paddingBottom:20 }}>
-                        <Text style={{ fontWeight:"bold"}} >Cuéntanos todo sobre tu proyecto ¿Cuál es tu url? y ¿Cuáles son tus productos o servicios estrella?</Text>
+                    <StyleContainer content_input>
+                        <StyleText label >Cuéntanos todo sobre tu proyecto ¿Cuál es tu url? y ¿Cuáles son tus productos o servicios estrella?</StyleText>
                         <StyleInput placeholder="Tú respuesta"  input/>
-                    </View>
+                    </StyleContainer>
 
-                    <View style={{ paddingBottom:20 }}>
-                        <Text style={{ fontWeight:"bold"}} >¿Cuál es el objetivo de tu campaña?</Text>
+                    <StyleContainer content_input>
+                        <StyleText label >¿Cuál es el objetivo de tu campaña?</StyleText>
                         <StyleInput placeholder="Tú respuesta"  input/>
-                    </View>
+                    </StyleContainer>
 
-                    <View style={{ paddingBottom:20 }}>
-                        <Text style={{ fontWeight:"bold"}} >¿Cuál es tu presupuesto?</Text>
+                    <StyleContainer content_input>
+                        <StyleText label >¿Cuál es tu presupuesto?</StyleText>
                         <StyleInput placeholder="Tú respuesta"  input/>
-                    </View>
+                    </StyleContainer>
 
-                    <View style={{ paddingBottom:20 }}>
-                        <Text style={{ fontWeight:"bold"}} >¿A cuanto asciende tu objetivo de ventas?
-                            (en dinero $)</Text>
+                    <StyleContainer content_input>
+                        <StyleText label>¿A cuanto asciende tu objetivo de ventas?
+                            (en dinero $)</StyleText>
                         <StyleInput placeholder="Tú respuesta"  input/>
-                    </View>
+                    </StyleContainer>
 
-                    <View style={{ paddingBottom:20 }}>
-                        <Text style={{ fontWeight:"bold"}} >¿A cuánto asciende tu ticket promedio?
+                    <StyleContainer content_input>
+                        <StyleText label >¿A cuánto asciende tu ticket promedio?
                             (en dinero $) El ticket promedio se refiere a cuanto
-                            cuesta en promedio tu producto o servicio</Text>
+                            cuesta en promedio tu producto o servicio</StyleText>
                         <StyleInput placeholder="Tú respuesta"  input/>
-                    </View>
+                    </StyleContainer>
 
-                </View>
+                </StyleContainer>
                 
             </Formik>
 
-            <StyleButton to="/cotizador" button>
+            <StyleButton to="/quoter" button>
                 <StyleText link_text >ENVÍAR</StyleText>
                 <StyleImagen source={require('../img/arrow.webp')} link_imagen />
             </StyleButton>
@@ -83,4 +83,4 @@ const Formulario= () =>{
       
     )
 }
-export default Formulario
+export default Form

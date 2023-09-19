@@ -23,20 +23,20 @@ const Home= () =>{
                 <StyleContainer text>
                     <StyleText title >Login</StyleText>
 
-                    <Formik>
+                    <Formik >
                         <View>
-                            <>
-                            <StyleInput placeholder="Usuario"  input/>
-                            </>
+                            <StyleContainer content_input>
+                                <StyleInput placeholder="Usuario"  input/>
+                            </StyleContainer >
 
-                            <>
-                            <StyleInput placeholder="Contraseña" input/>
-                            </>
+                            <StyleContainer content_input>
+                                <StyleInput placeholder="Contraseña" input/>
+                            </StyleContainer >
 
                         </View>
                     </Formik>
 
-                    <StyleButton to="/formulario" button >
+                    <StyleButton to="/form" button >
                         <StyleText link_text >INCIA SESIÓN</StyleText>
                         <StyleImagen source={require('../img/arrow.webp')} link_imagen />
                     </StyleButton>

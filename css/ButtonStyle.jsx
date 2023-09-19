@@ -23,15 +23,25 @@ const styles = StyleSheet.create({
         
     },
 
+    button_pdf:{
+        width:"100%",
+        height:150,
+        flexDirection:'row',
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        gap:10,
+        
+    },
+
 
 })
 
 
-export default function StyleButton({button, button_sesion, children,to}){
+export default function StyleButton({button_pdf,button, button_sesion, children,to}){
     const buttonStyle =[
         button && styles.button,
         button_sesion && styles.button_sesion,
-
+        button_pdf && styles.button_pdf,
     ]
 
     return(

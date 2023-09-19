@@ -20,15 +20,23 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         margin:"auto",
     },
+
+    link_media:{
+        width:25,
+        height:25,
+        resizeMode: 'contain',
+        margin:"auto",
+    }
 })
 
 
-export default function StyleImagen({imagen, imagen_firts ,link_imagen , source}){
+export default function StyleImagen({imagen, imagen_firts ,link_imagen,link_media , source}){
     const ImagenStyle =[
         /*styles.imagen_first,*/
         imagen && styles.imagen,
         imagen_firts && styles.imagen_first,
         link_imagen && styles.link_imagen,
+        link_media && styles.link_media,
 
     ]
 
