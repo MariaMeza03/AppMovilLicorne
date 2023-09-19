@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         width:300,
         resizeMode: 'contain',
         margin:"auto",
+        marginHorizontal:"auto"
     },
     imagen_logo:{
         width:80,
