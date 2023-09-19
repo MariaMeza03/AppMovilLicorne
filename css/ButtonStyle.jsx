@@ -1,5 +1,7 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Link } from "react-router-native";
+import { TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
 
@@ -11,17 +13,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap:10,
     },
+
     button_sesion:{
         flexDirection:'row',
         backgroundColor: 'transparent',
         alignItems: 'center',
         marginLeft:"auto",
+        underlayColor:"transparent"
+        
     },
+
 
 })
 
 
-export default function StyleButton({button, button_sesion, onPress, children}){
+export default function StyleButton({button, button_sesion, children,to}){
     const buttonStyle =[
         button && styles.button,
         button_sesion && styles.button_sesion,
@@ -29,8 +35,10 @@ export default function StyleButton({button, button_sesion, onPress, children}){
     ]
 
     return(
-        <TouchableOpacity style={ buttonStyle } onPress ={ onPress }>
-            { children }
-        </TouchableOpacity>
+        <Link to={to} underlayColor="transparent" component={TouchableOpacity} style={{backgroundColor:"transparent"}}>
+            <View style={ buttonStyle }  component={TouchableOpacity}>
+                { children }
+            </View>
+        </Link>
     )
 }

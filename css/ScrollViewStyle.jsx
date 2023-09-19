@@ -6,18 +6,17 @@ const styles = StyleSheet.create({
 
     container:{
         width:"100%",
-        height:"100%",
+        height:"auto",
         flexGrow : 1, 
         justifyContent : 'center',
         alignItems: 'center',
         marginTop:Constants.statusBarHeight,
+        
     },
-
-
 })
 
 
-export default function StyleContainerScroll({text, container, children}){
+export default function StyleContainerScroll({ container, children}){
     const containerStyleScroll =[
         container && styles.container,
     ]

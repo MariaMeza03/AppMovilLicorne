@@ -12,9 +12,7 @@ const styles = StyleSheet.create({
     imagen_logo:{
         width:80,
         resizeMode: 'contain',
-        margin:"auto",
-        marginTop:30,
-        marginBottom:30,
+        marginHorizontal:30,
     },
 
     link_imagen:{
