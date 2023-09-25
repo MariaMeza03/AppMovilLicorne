@@ -13,12 +13,24 @@ const styles = StyleSheet.create({
         marginTop:Constants.statusBarHeight,
         
     },
+
+    container_form:{
+        width:"100%",
+        height:"auto",
+        paddingBottom:20,
+        flexGrow : 1, 
+        justifyContent : 'center',
+        alignItems: 'center',
+        marginTop:Constants.statusBarHeight,
+        
+    },
 })
 
 
-export default function StyleContainerScroll({ container, children}){
+export default function StyleContainerScroll({ container,container_form, children}){
     const containerStyleScroll =[
         container && styles.container,
+        container_form && styles.container_form,
     ]
 
     return(

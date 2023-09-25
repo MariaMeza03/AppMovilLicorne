@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         padding:15, 
         backgroundColor: 'white',
         borderRadius:20,
-         marginTop:10
     },
     content_form_form_formik:{
         paddingVertical:20,
@@ -38,7 +37,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     content_input:{
-        paddingBottom:25, 
+        paddingBottom:15, 
     },
 
     content_media:{
