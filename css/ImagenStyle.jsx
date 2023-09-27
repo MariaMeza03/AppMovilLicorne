@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         marginHorizontal:"auto"
     },
     imagen_logo:{
-        width:80,
+        width:50,
         resizeMode: 'contain',
         marginHorizontal:30,
     },

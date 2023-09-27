@@ -12,6 +12,7 @@ import StyleContainer from "../../css/ContainerStyle";
 import StyleBackground from "../../css/BackgroundStyle";
 import StyleContainerScroll from "../../css/ScrollViewStyle";
 import StyleButtonForm from "../../css/ButtonStyleForm";
+import StyleButton from "../../css/ButtonStyle";
 
 const loginValidationSchema = Yup.object().shape({
     email: Yup.string()
@@ -123,7 +124,9 @@ const Form= () =>{
             </Formik>
 
             <StyleContainer  content_image>
-                <StyleImagen  source={require('../img/logo.webp')} imagen_logo />
+                <StyleButton to="/" button>
+                    <StyleImagen  source={require('../img/logo.webp')} imagen_logo />
+                </StyleButton>
             </StyleContainer>
             
         </StyleContainer>

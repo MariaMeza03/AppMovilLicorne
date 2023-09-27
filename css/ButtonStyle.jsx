@@ -7,11 +7,12 @@ const styles = StyleSheet.create({
 
     button:{
         width:"100%",
-        height:50,
         flexDirection:'row',
         backgroundColor: 'transparent',
         alignItems: 'center',
         gap:10,
+        marginHorizontal:30,
+        resizeMode: 'contain',
     },
 
     button_sesion:{

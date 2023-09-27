@@ -85,7 +85,9 @@ const Home= () =>{
                     
                 </StyleContainer>
                 
-                <StyleImagen  source={require('../img/logo.webp')} imagen_logo />
+                <StyleButton to="/" button>
+                    <StyleImagen  source={require('../img/logo.webp')} imagen_logo />
+                </StyleButton>
         
             </StyleContainerScroll>
       
