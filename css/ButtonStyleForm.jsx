@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet} from "react-native";
+import { StyleSheet , Image} from "react-native";
 import { Button } from 'react-native-paper';
 
 const styles = StyleSheet.create({
 
     button:{
         width:"100%",
-        height:50,
+        height:"auto",
         flexDirection:'row',
         backgroundColor: 'transparent',
         alignItems: 'center',
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 })
 
 
-export default function StyleButtonForm({button_pdf,button, button_sesion, children,onPress, title , text}){
+export default function StyleButtonForm({button_pdf,button, button_sesion, children,onPress, title , text }){
     const buttonStyle =[
         button && styles.button,
         button_sesion && styles.button_sesion,
@@ -45,7 +45,7 @@ export default function StyleButtonForm({button_pdf,button, button_sesion, child
     ]
 
     return(
-        <Button onPress={onPress}  title={title} mode="text" icon="arrow-right" buttonColor="transparent" textColor="black" style={ buttonStyle }  contentStyle={{flexDirection: 'row-reverse'}}>
+        <Button onPress={onPress}  title={title} mode="text" icon={({ }) => (<Image source={require('../src/img/arrow.webp')} style={{ width:40 , height: 40, tintColor: 'black', resizeMode: 'contain' ,padding:0 }}/>)} buttonColor="transparent" textColor="black" style={ buttonStyle }  contentStyle={{flexDirection: 'row-reverse'}}>
              {text}
         </Button>
     )

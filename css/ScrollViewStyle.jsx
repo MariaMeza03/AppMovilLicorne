@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
         marginTop:Constants.statusBarHeight,
         
     },
-
     container_form:{
         width:"100%",
         height:"auto",

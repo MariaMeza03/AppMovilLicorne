@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     content_form:{
         width:"100%",
         paddingHorizontal:50,
-        paddingBottom:50,
     },
 
     content_form_cotizador:{
@@ -49,16 +48,27 @@ const styles = StyleSheet.create({
         paddingBottom:40,
     },
 
-
     container_imagen_result:{
         paddingTop:40
-    }
+    },
+
+    content_nav:{
+        width:'90%',
+        height:'auto',
+        backgroundColor:'#666666',
+        borderRadius:50,
+        flexDirection:"row",
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginVertical:50,
+        position:'relative',
+    },
     
 
 })
 
 
-export default function StyleContainer({container_imagen_result,content_form_form_formik,content_input,content_form_quoter_formik,content_media,text, content_form, content_image, content_form_cotizador, children}){
+export default function StyleContainer({container_imagen_result,content_form_form_formik,content_input,content_form_quoter_formik,content_media,text, content_form, content_image, content_form_cotizador,content_nav, children}){
     const containerStyle =[
         text && styles.text,
         content_form && styles.content_form,
@@ -69,6 +79,7 @@ export default function StyleContainer({container_imagen_result,content_form_for
         content_input && styles.content_input,
         content_form_form_formik && styles.content_form_form_formik,
         container_imagen_result && styles.container_imagen_result,
+        content_nav && styles.content_nav,
     ]
 
     return(

@@ -6,13 +6,16 @@ import { TouchableOpacity } from 'react-native';
 const styles = StyleSheet.create({
 
     button:{
-        width:"100%",
+        width:70,
+        height:70,
         flexDirection:'row',
-        backgroundColor: 'transparent',
         alignItems: 'center',
+        justifyContent: 'center',
         gap:10,
-        marginHorizontal:30,
-        resizeMode: 'contain',
+        backgroundColor:'#FFDF18',
+        borderRadius:100,
+        position:'relative',
+        top:-20,
     },
 
     button_sesion:{
@@ -20,7 +23,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         alignItems: 'center',
         marginLeft:"auto",
-        underlayColor:"transparent"
+        underlayColor:"transparent",
+        padding:0,
         
     },
 

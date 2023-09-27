@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Linking , View  } from "react-native";
+import { Linking , View,  StyleSheet  } from "react-native";
 import { Formik } from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as Yup from 'yup';
@@ -46,7 +46,7 @@ const Home= () =>{
     return(
 
         <StyleContainerScroll container>
-                <StyleBackground colors={['#00E2CF', '#FFDF17']}  background/> 
+                <StyleBackground colors={['#FFDF17', '#00E2CF']}  background/> 
                 <StyleImagen source={require('../img/Pc.webp')} imagen />
 
                 <StyleContainer text>
@@ -84,15 +84,30 @@ const Home= () =>{
                     </StyleButton>
                     
                 </StyleContainer>
-                
-                <StyleButton to="/" button>
-                    <StyleImagen  source={require('../img/logo.webp')} imagen_logo />
-                </StyleButton>
-        
+
+                <StyleContainer content_nav>
+                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
+                            <StyleImagen source={require('../img/telefono.webp')} link_media />
+                        </StyleButton>
+
+                        <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
+                            <StyleImagen source={require('../img/whatsapp.webp')} link_media />
+                        </StyleButton>
+                        <StyleButton to="/" button>
+                            <StyleImagen imagen_logo source={require('../img/logo.webp')} />
+                        </StyleButton>
+                        <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
+                            <StyleImagen source={require('../img/correo.webp')} link_media />
+                        </StyleButton>
+
+                        <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
+                            <StyleImagen source={require('../img/lupa-blanca.webp')} link_media />
+                        </StyleButton>
+                </StyleContainer>
+
             </StyleContainerScroll>
       
     )
 }
 export default Home
-
 
