@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Linking , View , Text } from "react-native";
+import { Linking , View  } from "react-native";
 import { Formik } from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as Yup from 'yup';
