@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
     label:{
         fontWeight:"bold",
     },
+    error:{
+        color:"red",
+        fontSize:10,   
+    },
 
     hr:{
         textAlign:"center" ,
@@ -33,13 +37,14 @@ const styles = StyleSheet.create({
 })
 
 
-export default function StyleText({hr,label,title, link_text,children,title_cotizador}){
+export default function StyleText({error,hr,label,title, link_text,children,title_cotizador}){
     const textStyle =[
         title && styles.title,
         link_text && styles.link_text,
         title_cotizador && styles.title_cotizador,
         label && styles.label,
-        hr && styles.hr
+        hr && styles.hr,
+        error && styles.error
     ]
 
     return(

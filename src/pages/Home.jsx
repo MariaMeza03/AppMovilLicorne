@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Linking , View } from "react-native";
+import { Linking , View , Text } from "react-native";
 import { Formik } from 'formik';
 import {useNavigate} from 'react-router-dom';
+import * as Yup from 'yup';
 
 //*Css
 import StyleText from "../../css/TextStyle";
@@ -13,6 +14,15 @@ import StyleBackground from "../../css/BackgroundStyle";
 import StyleContainerScroll from "../../css/ScrollViewStyle";
 import StyleButtonForm from "../../css/ButtonStyleForm";
 
+const loginValidationSchema = Yup.object().shape({
+    user: Yup.string()
+    /*.email("Please enter valid email")*/
+    .required('El usuario es un campo requerido'),
+    password: Yup.string()
+    /*.min(8, ({ min }) => `La contraseña debe tener al menos ${min} caracteres`)*/
+    .required('La contraseña es un campo requerido'),
+})
+
 
 const Home= () =>{
 
@@ -23,11 +33,13 @@ const Home= () =>{
         console.log(values)
         setuser(values)
 
+        //*Unicamente prueba, la idea es conectarlo al back
+
         if(values.user === 'admin' && values.password === 'Licorne_130?'){
             console.log('Usuario y contraseña correctos')
             navigate('/form')
         }else{
-            alert('Usuario o contraseña incorrectos')
+            alert('Usuario y/o contraseña incorrectos')
         }
 	}
 
@@ -41,16 +53,23 @@ const Home= () =>{
                     <StyleText title >Login</StyleText>
 
                     <Formik  
+                    validationSchema={loginValidationSchema}
                     initialValues={{ user: '', password: ''}} 
                     onSubmit={handleSubmit}>
-                    {({ handleChange, handleBlur, handleSubmit, values }) => (
+                    {({ handleChange, handleBlur, handleSubmit, values , errors }) => (
                        <View>
                             <StyleContainer content_input>
-                                <StyleInput placeholder="Usuario" input value={values.user}  onBlur={handleBlur('user')} onChangeText={handleChange('user')} />
+                                <StyleInput placeholder="Usuario" name="user" input value={values.user}  onBlur={handleBlur('user')} onChangeText={handleChange('user')} />
+                                {errors.user &&
+                                    <StyleText error>{errors.user}</StyleText>
+                                }
                             </StyleContainer >
 
                             <StyleContainer content_input>
                             <StyleInput placeholder="Usuario" input value={values.password}  onBlur={handleBlur('password')} onChangeText={handleChange('password')} />
+                                {errors.password &&
+                                    <StyleText error>{errors.password}</StyleText>
+                                }
                             </StyleContainer >
 
                             <StyleButtonForm onPress={handleSubmit} button text="INCIA SESIÓN">
