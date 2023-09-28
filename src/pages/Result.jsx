@@ -10,7 +10,6 @@ import StyleBackground from "../../css/BackgroundStyle";
 import StyleContainerScroll from "../../css/ScrollViewStyle";
 
 
-
 const Result= () =>{
     return(
 
