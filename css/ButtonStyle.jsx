@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
     button_pdf:{
         width:"100%",
-        height:150,
+        height:80,
         flexDirection:'row',
         backgroundColor: 'transparent',
         alignItems: 'center',

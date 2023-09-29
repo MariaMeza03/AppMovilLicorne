@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
 })
 
 
-export default function StyleInput({input, placeholder, value , onBlur, onChangeText}){
+export default function StyleInput({input, placeholder, value , onBlur, onChangeText, secureTextEntry}){
     const textInput =[
         input && styles.input,
 
     ]
 
     return(
-        <TextInput style={textInput} placeholder={placeholder} value={value} onBlur={onBlur} onChangeText={onChangeText}>
+        <TextInput style={textInput} secureTextEntry={secureTextEntry} placeholder={placeholder} value={value} onBlur={onBlur} onChangeText={onChangeText}>
         </TextInput>
     )
 }

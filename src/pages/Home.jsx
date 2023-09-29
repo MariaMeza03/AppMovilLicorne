@@ -59,14 +59,14 @@ const Home= () =>{
                     {({ handleChange, handleBlur, handleSubmit, values , errors }) => (
                        <View>
                             <StyleContainer content_input>
-                                <StyleInput placeholder="Usuario" name="user" input value={values.user}  onBlur={handleBlur('user')} onChangeText={handleChange('user')} />
+                                <StyleInput placeholder="Usuario" name="user" input secureTextEntry={false} value={values.user}  onBlur={handleBlur('user')} onChangeText={handleChange('user')} />
                                 {errors.user &&
                                     <StyleText error>{errors.user}</StyleText>
                                 }
                             </StyleContainer >
 
                             <StyleContainer content_input>
-                            <StyleInput placeholder="Usuario" input value={values.password}  onBlur={handleBlur('password')} onChangeText={handleChange('password')} />
+                            <StyleInput placeholder="Usuario" input value={values.password} secureTextEntry={true} onBlur={handleBlur('password')} onChangeText={handleChange('password')} />
                                 {errors.password &&
                                     <StyleText error>{errors.password}</StyleText>
                                 }
@@ -79,7 +79,7 @@ const Home= () =>{
                         )}
                     </Formik>   
 
-                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
+                    <StyleButton to="/register" button_sesion >
                         <StyleText  link_text>¡Regístrate!</StyleText>
                     </StyleButton>
                     

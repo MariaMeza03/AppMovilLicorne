@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         alignItems: 'center',
         gap:10,
-        color:"black"
+        color:"black",
+        position:'relative',
+        left:-15,
     },
 
     button_sesion:{
