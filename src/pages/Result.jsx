@@ -1,6 +1,9 @@
 import React from "react";
 import { Linking } from "react-native";
 
+//*Components
+import Nav from "../components/Nav";
+
 //*Css
 import StyleText from "../../css/TextStyle";
 import StyleImagen from "../../css/ImagenStyle";
@@ -43,28 +46,7 @@ const Result= () =>{
                     
                 </StyleContainer>
                 
-                <StyleContainer content_nav>
-                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                            <StyleImagen source={require('../img/telefono.webp')} link_media />
-                    </StyleButton>
-
-                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                        <StyleImagen source={require('../img/whatsapp.webp')} link_media />
-                    </StyleButton>
-                    
-                    <StyleButton to="/" button>
-                        <StyleImagen imagen_logo source={require('../img/logo.webp')} />
-                    </StyleButton>
-
-                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                        <StyleImagen source={require('../img/correo.webp')} link_media />
-                    </StyleButton>
-
-                    <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                        <StyleImagen source={require('../img/lupa-blanca.webp')} link_media />
-                    </StyleButton>
-
-                </StyleContainer>
+                <Nav/>
         
             </StyleContainerScroll>
       

@@ -4,6 +4,9 @@ import { Formik } from 'formik';
 import {useNavigate} from 'react-router-dom';
 import * as Yup from 'yup';
 
+//*Components
+import Nav from "../components/Nav";
+
 //*Css
 import StyleText from "../../css/TextStyle";
 import StyleInput   from "../../css/InputStyle";
@@ -12,7 +15,7 @@ import StyleContainer from "../../css/ContainerStyle";
 import StyleBackground from "../../css/BackgroundStyle";
 import StyleContainerScroll from "../../css/ScrollViewStyle";
 import StyleButtonForm from "../../css/ButtonStyleForm";
-import StyleButton from "../../css/ButtonStyle";
+
 
 const loginValidationSchema = Yup.object().shape({
     name: Yup.string()
@@ -99,29 +102,8 @@ const Form= () =>{
             </Formik>
             
         </StyleContainer>
-
-        <StyleContainer content_nav>
-            <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                    <StyleImagen source={require('../img/telefono.webp')} link_media />
-            </StyleButton>
-
-            <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                <StyleImagen source={require('../img/whatsapp.webp')} link_media />
-            </StyleButton>
-            
-            <StyleButton to="/" button>
-                <StyleImagen imagen_logo source={require('../img/logo.webp')} />
-            </StyleButton>
-
-            <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                <StyleImagen source={require('../img/correo.webp')} link_media />
-            </StyleButton>
-
-            <StyleButton  onPress={() => Linking.openURL('http://google.com')} button_sesion >
-                <StyleImagen source={require('../img/lupa-blanca.webp')} link_media />
-            </StyleButton>
-
-        </StyleContainer>
+        
+        <Nav/>
 
     </StyleContainerScroll>
       
