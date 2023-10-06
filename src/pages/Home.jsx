@@ -1,113 +1,98 @@
-import React from "react";
-import { Text, View, OpenURLButton, Linking , TouchableOpacity} from "react-native";
-import { StyleSheet , Image , TextInput  } from "react-native";
-import Constants from 'expo-constants';
-import { LinearGradient } from "expo-linear-gradient";
-import { ScrollView } from "react-native-web";
+import React, { useState } from "react";
+import { View } from "react-native";
+import { Formik } from 'formik';
+import {useNavigate} from 'react-router-dom';
+import * as Yup from 'yup';
+
+//*Components
+import Nav from "../components/Nav";
+
+//*Css
+import StyleText from "../../css/TextStyle";
+import StyleInput   from "../../css/InputStyle";
+import StyleImagen from "../../css/ImagenStyle";
+import StyleButton from "../../css/ButtonStyle";
+import StyleContainer from "../../css/ContainerStyle";
+import StyleBackground from "../../css/BackgroundStyle";
+import StyleContainerScroll from "../../css/ScrollViewStyle";
+import StyleButtonForm from "../../css/ButtonStyleForm";
+
+const loginValidationSchema = Yup.object().shape({
+    user: Yup.string()
+    /*.email("Please enter valid email")*/
+    .required('El usuario es un campo requerido'),
+    password: Yup.string()
+    /*.min(8, ({ min }) => `La contraseña debe tener al menos ${min} caracteres`)*/
+    .required('La contraseña es un campo requerido'),
+})
+
 
 const Home= () =>{
+
+    const [user, setuser] = useState({})
+    const navigate = useNavigate();
+
+    const handleSubmit = (values) => {
+        console.log(values)
+        setuser(values)
+
+        //*Unicamente prueba, la idea es conectarlo al back
+
+        if(values.user === 'admin' && values.password === 'Licorne_130?'){
+            console.log('Usuario y contraseña correctos')
+            navigate('/form')
+        }else{
+            alert('Usuario y/o contraseña incorrectos')
+        }
+	}
+
     return(
-        <View style={styles.container}>
-            <LinearGradient colors={['#00E2CF', '#FFDF17']} style={styles.background}/> 
-            <Image source={require('../img/Pc.webp')} style={styles.imagen}/>
 
-            <View style={styles.text}>
-                <Text style={styles.title}>Login</Text>
-                <TextInput placeholder="Usuario" style={styles.input}/>
-                <TextInput placeholder="Contraseña" style={styles.input}/>
+        <StyleContainerScroll container>
+                <StyleBackground colors={['#FFDF17', '#00E2CF']}  background/> 
+                <StyleImagen source={require('../img/Pc.webp')} imagen />
 
-                <TouchableOpacity onPress={() => Linking.openURL('http://google.com')} style={styles.button} >
-                    <Text style={styles.link_text} >INCIA SESIÓN</Text>
-                    <Image source={require('../img/arrow.webp')} style={styles.link_imagen}/>
-                </TouchableOpacity>
+                <StyleContainer text>
+                    <StyleText title >Login</StyleText>
 
-                <TouchableOpacity onPress={() => Linking.openURL('http://google.com')} style={styles.button_sesion} >
-                    <Text style={styles.link_text} >¡Regístrate!</Text>
-                </TouchableOpacity>
-                
-            </View>
-            
-            <Image source={require('../img/logo.webp')} style={styles.imagen_logo}/>
-        
-        </View>
+                    <Formik  
+                    validationSchema={loginValidationSchema}
+                    initialValues={{ user: '', password: ''}} 
+                    onSubmit={handleSubmit}>
+                    {({ handleChange, handleBlur, handleSubmit, values , errors }) => (
+                       <View>
+                            <StyleContainer content_input>
+                                <StyleInput placeholder="Usuario" name="user" input secureTextEntry={false} value={values.user}  onBlur={handleBlur('user')} onChangeText={handleChange('user')} />
+                                {errors.user &&
+                                    <StyleText error>{errors.user}</StyleText>
+                                }
+                            </StyleContainer >
 
+                            <StyleContainer content_input>
+                            <StyleInput placeholder="Usuario" input value={values.password} secureTextEntry={true} onBlur={handleBlur('password')} onChangeText={handleChange('password')} />
+                                {errors.password &&
+                                    <StyleText error>{errors.password}</StyleText>
+                                }
+                            </StyleContainer >
+
+                            <StyleButtonForm onPress={handleSubmit} button text="INCIA SESIÓN">
+                            </StyleButtonForm>
+
+                        </View>
+                        )}
+                    </Formik>   
+
+                    <StyleButton to="/register" button_sesion >
+                        <StyleText  link_text>¡Regístrate!</StyleText>
+                    </StyleButton>
+                    
+                </StyleContainer>
+
+                <Nav/>
+
+            </StyleContainerScroll>
+      
     )
 }
 export default Home
 
-const styles = StyleSheet.create({
-    container:{
-        width:"100%",
-        height:"100%",
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop:Constants.statusBarHeight,
-    },
-
-    background:{
-        width:"100%",
-        height:"100%",
-        position:"absolute",
-        zIndex:0,
-    },
-
-    imagen:{
-        width:300,
-        resizeMode: 'contain',
-        margin:"auto",
-    },
-
-    text:{
-        width:"100%",
-        paddingLeft:50,
-        paddingRight:50,
-    },
-
-    title:{
-        fontSize:40,
-        fontWeight:'bold',
-        textAlign:'left',
-    },
-
-    input:{
-        width:"100%",
-        borderBottomWidth:3,
-        borderBottomColor:"#000",
-        padding:10,
-    },
-    button:{
-        width:"100%",
-        height:80,
-        flexDirection:'row',
-        backgroundColor: 'transparent',
-        alignItems: 'center',
-        gap:10,
-    },
-
-    link_text:{
-        fontSize:15,
-        fontWeight:'bold',
-    },
-
-    link_imagen:{
-        width:50,
-        resizeMode: 'contain',
-        margin:"auto",
-    },
-
-    button_sesion:{
-        flexDirection:'row',
-        backgroundColor: 'transparent',
-        alignItems: 'center',
-        marginLeft:"auto",
-    },
-
-    imagen_logo:{
-        width:100,
-        resizeMode: 'contain',
-        margin:"auto",
-        marginTop:30,
-        marginBottom:30,
-    }
-
-})
